@@ -24,4 +24,16 @@ class Test extends FunSuite {
   test("1/2 != null") {
     assert(Rational(1, 2) != null)
   }
+
+  test("Rational + Rational") {
+    assert(Rational(1, 2) + Rational(3, 4) == Rational(5, 4))
+  }
+
+  test("Rational + Int") {
+    assert(Rational(1, 2) + 2 == Rational(5, 2))
+  }
+
+  test("Int + Rational") {
+    assert(2 + Rational(1, 2) == Rational(5, 2))
+  }
 }

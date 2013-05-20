@@ -4,6 +4,11 @@
  */
 object Rational {
   def apply(n: Int, d: Int) = new Rational(n, d)
+
+  implicit class RationalToInt(x: Int) {
+    def +(r: Rational) = new Rational(x) + r
+  }
+
 }
 
 class Rational(n: Int, d: Int) {
@@ -14,10 +19,12 @@ class Rational(n: Int, d: Int) {
 
   def this(n: Int) = this(n, 1)
 
-  def + (that: Rational) = Rational(
+  def +(that: Rational) = Rational(
     this.numer * that.denom + that.numer * this.denom,
     this.denom * that.denom
   )
+
+  def +(i: Int) = Rational(this.denom * i + this.numer, this.denom)
 
   override def toString: String = s"$numer/$denom"
 
