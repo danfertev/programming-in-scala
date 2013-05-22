@@ -8,7 +8,7 @@ import org.scalatest.junit.JUnitRunner
  */
 
 @RunWith(classOf[JUnitRunner])
-class Test extends FunSuite {
+class TestRational extends FunSuite {
   test("1/2 == 1/2") {
     assert(Rational(1, 2) === Rational(1, 2))
   }
@@ -35,5 +35,13 @@ class Test extends FunSuite {
 
   test("Int + Rational") {
     assert(2 + Rational(1, 2) == Rational(5, 2))
+  }
+
+  test("1/2 > 1/3") {
+    assert(Rational(1, 2) > Rational(1, 3))
+  }
+
+  test("3/4 <= 6/8") {
+    assert(Rational(3, 4) <= Rational(6, 8))
   }
 }

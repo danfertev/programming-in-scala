@@ -7,6 +7,10 @@ xs.withFilter(_ > 0).map(_ * 2)
 xs.foreach(println)
 
 
+
+
+
+
 var more = 10
 
 val add = (x: Int) => x + more
@@ -25,3 +29,7 @@ var sum = 0
 xs.foreach(sum += _)
 
 sum
+
+42.hashCode
+
+(new animal.Cat).toString

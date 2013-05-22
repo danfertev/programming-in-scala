@@ -11,7 +11,7 @@ object Rational {
 
 }
 
-class Rational(n: Int, d: Int) {
+class Rational(n: Int, d: Int) extends Ordered[Rational] {
   require(d != 0)
   private val g = gcd(n.abs, d.abs)
   val numer = n / g
@@ -32,6 +32,9 @@ class Rational(n: Int, d: Int) {
     case r: Rational => (this.numer == r.numer) && (this.denom == r.denom)
     case _ => false
   }
+
+
+  def compare(that: Rational): Int = this.numer * that.denom - that.numer * this.denom
 
   private def gcd(a: Int, b: Int): Int =
     if (b == 0) a else gcd(b, a % b)
